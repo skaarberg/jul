@@ -46,14 +46,52 @@ if (Meteor.isClient) {
       });
     },
     "click .delete": function () {
-      Tasks.remove(this._id);
+      if (confirm("Er du sikker på at du vil slette hele spørsmålet? DETTE KAN IKKE OMGJØRES") == true) {
+        Tasks.remove(this._id);
+      } else {
+    }
+      
     },
+
     "click .changeQ": function () {
       // Set the checked property to the opposite of its current value
-      var newQuestion = prompt("Please enter your name", "Harry Potter");
+      var newQuestion = prompt("Legg til ny spørsmålstekst", "");
       Tasks.update(this._id, {
         $set: {text: newQuestion}
       });
     },
+
+    "click .changeA1": function () {
+      // Set the checked property to the opposite of its current value
+      var newAnswer = prompt("Legg til nytt alternativ", "");
+      Tasks.update(this._id, {
+        $set: {answer1: newAnswer}
+      });
+    },
+
+    "click .changeA2": function () {
+      // Set the checked property to the opposite of its current value
+      var newAnswer = prompt("Legg til nytt alternativ", "");
+      Tasks.update(this._id, {
+        $set: {answer2: newAnswer}
+      });
+    },
+
+    "click .changeA3": function () {
+      // Set the checked property to the opposite of its current value
+      var newAnswer = prompt("Legg til nytt alternativ", "");
+      Tasks.update(this._id, {
+        $set: {answer3: newAnswer}
+      });
+    },
+
+    "click .changeA4": function () {
+      // Set the checked property to the opposite of its current value
+      var newAnswer = prompt("Legg til nytt alternativ", "");
+      Tasks.update(this._id, {
+        $set: {answer4: newAnswer}
+      });
+    },
+    
   });
 }

@@ -46,18 +46,23 @@ h1 {
 form {
   margin-top: 10px;
   margin-bottom: -10px;
-  position: relative;
 }
 
-.new-task input {
-  box-sizing: border-box;
+.skiller {
+  height: 50px;
+  background-color: red;
+}
+
+
+.new-task input:not([type]), input[type="text"] {
   padding: 10px 0;
-  background: transparent;
+  background: white;
   border: none;
-  width: 100%;
+  width: 50%;
   padding-right: 80px;
   font-size: 1em;
 }
+
 
 .new-task input:focus{
   outline: 0;
@@ -70,12 +75,37 @@ ul {
 }
 
 .delete {
-  float: right;
+  margin: auto;
   font-weight: bold;
-  background: none;
   font-size: 1em;
-  border: none;
-  position: relative;
+}
+
+.changeQ {
+  float: right;
+}
+
+.changeA1 {
+  float: right;
+}
+
+.changeA2 {
+  float: right;
+}
+
+.changeA3 {
+  float: right;
+}
+
+.changeA4 {
+  float: right;
+}
+
+.answer1 {
+  float: left;
+}
+
+.alt1 {
+  display: block;
 }
 
 li {
@@ -83,10 +113,15 @@ li {
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
+  line-height: 200%;
 }
 
 li .text {
   margin-left: 10px;
+}
+
+td {
+  line-height: 200%;
 }
 
 li.checked {
