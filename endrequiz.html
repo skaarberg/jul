@@ -1,25 +1,41 @@
+<!--
 <head>
   <title>Endre quiz</title>
 </head>
  
 <body>
-  
-  {{> addquestion}}
-
-  {{> leaderboard}}
-
-  {{> questionlist}}
-
-  {{> task}}
-
-</body>
-
-<template name="addquestion">
   <div class="container">
     <header>
       <h1>Todo List</h1>
 
       <form class="new-task">
+        -->
+        <!--
+        <input type="text" name="text" placeholder="Skriv inn spørsmål" />
+        <table style="width:100%" class="greier">
+          <tr>
+            <td>
+              <input type="radio" name="correct" value="1" checked>
+              <input type="radio" name="correct" value="2" checked>
+              <input type="radio" name="correct" value="3" checked>
+              <input type="radio" name="correct" value="4" checked>
+            </td>  
+            <td>
+              <input type="text" name="answer1" placeholder="Svar 1" />
+              <input type="text" name="answer2" placeholder="Svar 2" />
+              <input type="text" name="answer3" placeholder="Svar 3" />
+              <input type="text" name="answer4" placeholder="Svar 4" />
+            </td>  
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="Lagre spørsmål">
+            </td>
+            
+          </tr>
+        </table>
+      -->
+        <!--
         <label id=corLabel>Riktig alt.</label>
         <input type="text" name="text" placeholder="Skriv inn spørsmålstekst" />
         <li>
@@ -40,26 +56,13 @@
     <div class="skiller"> 
     </div>
 
-    
-  </div>
-</template>
-
-<template name="questionlist">
-  <ul>
+    <ul>
       {{#each tasks}}
         {{> task}}
       {{/each}}
     </ul>
-</template>
-
-<template name="pageselector">
-  {{#page_is "/taquiz"}}
-    {{> taquiz}}
-  {{/page_is}}
-  {{#page_is "/"}}
-    {{> default}}
-  {{/page_is}}
-</template>
+  </div>
+</body>
 
 <template name="task">
   <li>Spørsmål: {{text}}<button class="changeQ">Endre spørsmålstekst</button><br>
@@ -69,4 +72,21 @@
     Alternativ 4: {{answer4}}<button class="changeA4">Endre alternativ</button><br>
     <button class="delete">Slett spørsmål</button>
   </li>
+    
+  -->
+  <!--
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+ 
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{text}}</span>
+    <span class="answer1">{{answer1}}</span>
+    <span class="answer2">{{answer2}}</span>
+    <span class="answer3">{{answer3}}</span>
+    <span class="answer4">{{answer4}}</span> 
+  </li>
+  -->
+<!--
 </template>
+
+-->

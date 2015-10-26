@@ -92,6 +92,6 @@ if (Meteor.isClient) {
         $set: {answer4: newAnswer}
       });
     },
-    
+
   });
 }
