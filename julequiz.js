@@ -47,6 +47,13 @@ if (Meteor.isClient) {
     },
     "click .delete": function () {
       Tasks.remove(this._id);
-    }
+    },
+    "click .changeQ": function () {
+      // Set the checked property to the opposite of its current value
+      var newQuestion = prompt("Please enter your name", "Harry Potter");
+      Tasks.update(this._id, {
+        $set: {text: newQuestion}
+      });
+    },
   });
 }

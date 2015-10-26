@@ -27,8 +27,11 @@
 </body>
  
 <template name="task">
-  <li>{{text}}</li>
-  <li>{{answer1}}</li>
+  <li>Spørsmål: {{text}}<button class="changeQ">&times;</button><br>
+    Alternativ 1: {{answer1}}<button class="changeA1">&times;</button><br>
+    Alternativ 2: {{answer2}}<button class="changeA2">&times;</button><br>
+    Alternativ 3: {{answer3}}<button class="changeA3">&times;</button><br>
+    Alternativ 4: {{answer4}}<button class="changeA4">&times;</button></li>
   <li class="{{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
  
