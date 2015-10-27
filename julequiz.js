@@ -1,15 +1,22 @@
 Tasks = new Mongo.Collection("tasks");
+Questions = new Mongo.Collection("questions");
  
 if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
-    tasks: function () {
-      return Tasks.find({});
+    questions: function () {
+      return Questions.find({});
+    },
+  });
+
+  Template.changelist.helpers({  
+    questions: function () {
+      return Questions.find({});
     }
   });
 
-  Template.body.events({
-    "submit .new-task": function (event) {
+  Template.newquestion.events({
+    "submit .new-question": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
  
@@ -21,7 +28,7 @@ if (Meteor.isClient) {
       var answer4 = event.target.answer4.value;
  
       // Insert a task into the collection
-      Tasks.insert({
+      Questions.insert({
         text: text,
         answer1: answer1,
         answer2: answer2,
@@ -38,16 +45,24 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.task.events({
+  Template.change.events({
+    "click .changeBtn": function () {
+      // Set the checked property to the opposite of its current value
+      console.log("Ting og tang");
+    },
+  });
+
+  Template.question.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {checked: ! this.checked}
       });
     },
+
     "click .delete": function () {
       if (confirm("Er du sikker på at du vil slette hele spørsmålet? DETTE KAN IKKE OMGJØRES") == true) {
-        Tasks.remove(this._id);
+        Questions.remove(this._id);
       } else {
     }
       
@@ -56,7 +71,7 @@ if (Meteor.isClient) {
     "click .changeQ": function () {
       // Set the checked property to the opposite of its current value
       var newQuestion = prompt("Legg til ny spørsmålstekst", "");
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {text: newQuestion}
       });
     },
@@ -64,7 +79,7 @@ if (Meteor.isClient) {
     "click .changeA1": function () {
       // Set the checked property to the opposite of its current value
       var newAnswer = prompt("Legg til nytt alternativ", "");
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {answer1: newAnswer}
       });
     },
@@ -72,7 +87,7 @@ if (Meteor.isClient) {
     "click .changeA2": function () {
       // Set the checked property to the opposite of its current value
       var newAnswer = prompt("Legg til nytt alternativ", "");
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {answer2: newAnswer}
       });
     },
@@ -80,7 +95,7 @@ if (Meteor.isClient) {
     "click .changeA3": function () {
       // Set the checked property to the opposite of its current value
       var newAnswer = prompt("Legg til nytt alternativ", "");
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {answer3: newAnswer}
       });
     },
@@ -88,10 +103,9 @@ if (Meteor.isClient) {
     "click .changeA4": function () {
       // Set the checked property to the opposite of its current value
       var newAnswer = prompt("Legg til nytt alternativ", "");
-      Tasks.update(this._id, {
+      Questions.update(this._id, {
         $set: {answer4: newAnswer}
       });
     },
-
   });
 }

@@ -3,65 +3,20 @@
 </head>
  
 <body>
-  
-  {{> addquestion}}
-
-  {{> leaderboard}}
-
-  {{> questionlist}}
-
-  {{> task}}
-
+    {{> layout}}
 </body>
 
-<template name="addquestion">
+<template name="layout">
+  {{> yield}}
+</template>
+
+<template name="taquiz">
   <div class="container">
-    <header>
-      <h1>Todo List</h1>
-
-      <form class="new-task">
-        <label id=corLabel>Riktig alt.</label>
-        <input type="text" name="text" placeholder="Skriv inn spørsmålstekst" />
-        <li>
-          <input type="radio" name="correct" value="1" checked>
-          Alternativ 1: <input type="text" name="answer1"/><br>
-          <input type="radio" name="correct" value="2" checked>
-          Alternativ 2: <input type="text" name="answer2"/><br>
-          <input type="radio" name="correct" value="3" checked>
-          Alternativ 3: <input type="text" name="answer3"/><br>
-          <input type="radio" name="correct" value="4" checked>
-          Alternativ 4: <input type="text" name="answer4"/><br>
-        </li>
-        <input type="submit" value="Lagre spørsmål">
-      </form>
-
-    </header>
-    
-    <div class="skiller"> 
-    </div>
-
-    
+    Dette er siden
   </div>
 </template>
 
-<template name="questionlist">
-  <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-</template>
-
-<template name="pageselector">
-  {{#page_is "/taquiz"}}
-    {{> taquiz}}
-  {{/page_is}}
-  {{#page_is "/"}}
-    {{> default}}
-  {{/page_is}}
-</template>
-
-<template name="task">
+<template name="question">
   <li>Spørsmål: {{text}}<button class="changeQ">Endre spørsmålstekst</button><br>
     Alternativ 1: {{answer1}}<button class="changeA1">Endre alternativ</button><br>
     Alternativ 2: {{answer2}}<button class="changeA2">Endre alternativ</button><br>
