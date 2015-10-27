@@ -26,6 +26,7 @@ if (Meteor.isClient) {
       var answer2 = event.target.answer2.value;
       var answer3 = event.target.answer3.value;
       var answer4 = event.target.answer4.value;
+      var corAnswer = event.target.correct.value;
  
       // Insert a task into the collection
       Questions.insert({
@@ -34,6 +35,7 @@ if (Meteor.isClient) {
         answer2: answer2,
         answer3: answer3,
         answer4: answer4,
+        corAnswer: corAnswer,
         createdAt: new Date() // current time
       });
       // Clear form
@@ -42,24 +44,11 @@ if (Meteor.isClient) {
       event.target.answer2.value = "";
       event.target.answer3.value = "";
       event.target.answer4.value = "";
+      event.target.correct.value = 1;
     }
   });
 
-  Template.change.events({
-    "click .changeBtn": function () {
-      // Set the checked property to the opposite of its current value
-      console.log("Ting og tang");
-    },
-  });
-
-  Template.question.events({
-    "click .toggle-checked": function () {
-      // Set the checked property to the opposite of its current value
-      Questions.update(this._id, {
-        $set: {checked: ! this.checked}
-      });
-    },
-
+    Template.changelist.events({
     "click .delete": function () {
       if (confirm("Er du sikker på at du vil slette hele spørsmålet? DETTE KAN IKKE OMGJØRES") == true) {
         Questions.remove(this._id);
@@ -105,6 +94,15 @@ if (Meteor.isClient) {
       var newAnswer = prompt("Legg til nytt alternativ", "");
       Questions.update(this._id, {
         $set: {answer4: newAnswer}
+      });
+    },
+
+    "click .changeCorAnswer": function () {
+      // Set the checked property to the opposite of its current value
+      var newAnswer = prompt("Hvilket alternativ er korrekt?", "");
+      if (newAnswer<5) {console.log("ja")};
+      Questions.update(this._id, {
+        $set: {corAnswer: newAnswer}
       });
     },
   });

@@ -10,18 +10,22 @@
   {{> yield}}
 </template>
 
-<template name="taquiz">
-  <div class="container">
-    Dette er siden
-  </div>
-</template>
-
 <template name="question">
   <li>Spørsmål: {{text}}<button class="changeQ">Endre spørsmålstekst</button><br>
     Alternativ 1: {{answer1}}<button class="changeA1">Endre alternativ</button><br>
     Alternativ 2: {{answer2}}<button class="changeA2">Endre alternativ</button><br>
     Alternativ 3: {{answer3}}<button class="changeA3">Endre alternativ</button><br>
     Alternativ 4: {{answer4}}<button class="changeA4">Endre alternativ</button><br>
+    Korrekt svar: <b>Alternativ {{corAnswer}}</b>
+    <button class="changeCorAnswer">Endre rett svar</button>
     <button class="delete">Slett spørsmål</button>
   </li>
+</template>
+
+<template name="answerQuestion">
+  <h2>{{text}}</h2>
+  Alternativ 1: {{answer1}}<br>
+  Alternativ 2: {{answer2}}<br>
+  Alternativ 3: {{answer3}}<br>
+  Alternativ 4: {{answer4}}<br>
 </template>

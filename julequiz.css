@@ -78,6 +78,7 @@ ul {
   margin: auto;
   font-weight: bold;
   font-size: 1em;
+  float: right;
 }
 
 .changeQ {
